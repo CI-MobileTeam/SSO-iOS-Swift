@@ -18,8 +18,7 @@ Pod::Spec.new do |spec|
   spec.name         = "CISSO"
   spec.version      = "1.0.1"
   spec.summary      = "just for third party login"
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "just for third party login first test"
 
   spec.homepage     = "https://github.com/CI-MobileTeam/SSO-iOS-Swift"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
