@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                    DESC
 
   spec.homepage     = "https://github.com/CI-MobileTeam/SSO-iOS-Swift"
-  spec.license      = { :type => "MIT", :file => "License.md" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "Hank Chien" => "hankchien@cloud-interactive.com" }
   spec.platform     = :ios, "10.0"
   spec.source       = { :git => "https://github.com/CI-MobileTeam/SSO-iOS-Swift/CISSO.git", :tag => "#{spec.version}" }
