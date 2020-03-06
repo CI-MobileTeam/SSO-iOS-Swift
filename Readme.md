@@ -22,39 +22,39 @@ end
 在info.plist增加您申請的服務相對應的url scheme設定以及LSApplicationQueriesSchemes
 
 ```
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>GoogleSignIn</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.YOUR_APP_REGIST_CODE</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>LineLogin</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>line3rdp.YOUR_APP_REGIST_BUNDLE_ID</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>Facebook</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>FROM_FB_REGIST</string>
-			</array>
-		</dict>
-	</array>
+<key>CFBundleURLTypes</key>
+<array>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLName</key>
+		<string>GoogleSignIn</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>com.googleusercontent.apps.YOUR_APP_REGIST_CODE</string>
+		</array>
+	</dict>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLName</key>
+		<string>LineLogin</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>line3rdp.YOUR_APP_REGIST_BUNDLE_ID</string>
+		</array>
+	</dict>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLName</key>
+		<string>Facebook</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>FROM_FB_REGIST</string>
+		</array>
+	</dict>
+</array>
 
 ```
 ```
@@ -84,21 +84,19 @@ end
 在AppDelegate導入CISSO,並在lauch func中實作您所需的dataSource,如不需要使用的第三方服務可以不實作,並且呼叫config讓manager幫您完成相關設定
 
 ```swift
-// swift-tools-version:5.0
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        SSOManager.shared().facebookDataSource(dataSource: self)
-        //SSOManager.shared().lineDataSource(dataSource: self)
-        SSOManager.shared().setConfig(application: application, launchOptions: launchOptions, dataSource: self)
+    SSOManager.shared().facebookDataSource(dataSource: self)
+    //SSOManager.shared().lineDataSource(dataSource: self)
+    SSOManager.shared().setConfig(application: application, launchOptions: launchOptions, dataSource: self)
         
         
-        return true
-    }
+    return true
+}
 
 ```
 
 ```swift
-// swift-tools-version:5.0
 extension AppDelegate: FacebookDataSource{
     var facebookAppID: String {
         return "YOUR_FACEBOOK_APPID"
@@ -115,18 +113,15 @@ extension AppDelegate: FacebookDataSource{
 在您想要執行登入動作時呼叫func並且選擇好登入type, handle result即可完成登入動作
 
 ```swift
-// swift-tools-version:5.0
 SSOManager.shared().loginWithThirdParty(type: .FACEBOOKLOGIN, presentVC: self) { (result) in
-      switch result{
-            case .success(let model):
-                print(model)
-                
-            case .cancelled:
-                return
-            case .failure(let error):
-                print(error.localizedDescription)
-
-       }
+    switch result{
+    case .success(let model):
+        print(model)          
+    case .cancelled:
+        return
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
 }
 
 ```
