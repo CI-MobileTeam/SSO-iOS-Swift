@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CISSO"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "A short description of CISSO."
 
   # This description is used to generate tags and improve search results.
@@ -30,6 +30,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/CI-MobileTeam/SSO-iOS-Swift"
   spec.license      = { :type => "MIT", :file => "License.md" }
   spec.author             = { "Hank Chien" => "hankchien@cloud-interactive.com" }
+  spec.platform     = :ios, "10.0"
   spec.source       = { :git => "https://github.com/CI-MobileTeam/SSO-iOS-Swift/CISSO.git", :tag => "#{spec.version}" }
   spec.swift_version = '5.0'
   spec.framework = "UIKit"
