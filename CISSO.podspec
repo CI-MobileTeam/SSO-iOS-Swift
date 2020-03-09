@@ -24,12 +24,12 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "Hank Chien" => "hankchien@cloud-interactive.com" }
   spec.platform     = :ios, "10.0"
-  spec.source       = { :git => "https://github.com/CI-MobileTeam/SSO-iOS-Swift/CISSO.git", :tag => "1.0.1" }
+  spec.source       = { :git => "https://github.com/CI-MobileTeam/SSO-iOS-Swift/CISSO.git", :tag => spec.version }
   spec.swift_version = '5.0'
   spec.framework = "UIKit"
   spec.dependency 'FacebookLogin'
   spec.dependency 'GoogleSignIn', '5.0.2'
   spec.dependency 'LineSDKSwift', '5.5.1'
-
+  spec.requires_arc = true
 
 end
