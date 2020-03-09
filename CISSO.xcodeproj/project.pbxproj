@@ -13,9 +13,11 @@
 		370A883D2410EC2D00CCF9E6 /* LoginModelForLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A883A2410EC2D00CCF9E6 /* LoginModelForLine.swift */; };
 		370A883E2410EC2D00CCF9E6 /* LoginModelForApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A883B2410EC2D00CCF9E6 /* LoginModelForApple.swift */; };
 		370A88412410EC3E00CCF9E6 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A88402410EC3E00CCF9E6 /* DelegateViewController.swift */; };
+		7CE33BCAC8B267F1280E9778 /* Pods_CISSO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC217A12AF10FA6934FEF0A /* Pods_CISSO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FC217A12AF10FA6934FEF0A /* Pods_CISSO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CISSO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		370A882A2410E77200CCF9E6 /* CISSO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CISSO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		370A882D2410E77200CCF9E6 /* CISSO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISSO.h; sourceTree = "<group>"; };
 		370A882E2410E77200CCF9E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		370A883A2410EC2D00CCF9E6 /* LoginModelForLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForLine.swift; sourceTree = "<group>"; };
 		370A883B2410EC2D00CCF9E6 /* LoginModelForApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForApple.swift; sourceTree = "<group>"; };
 		370A88402410EC3E00CCF9E6 /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
+		529FA0D46E140D48FA034C21 /* Pods-CISSO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CISSO.debug.xcconfig"; path = "Target Support Files/Pods-CISSO/Pods-CISSO.debug.xcconfig"; sourceTree = "<group>"; };
+		CAB4A9F31087E93D5325B00B /* Pods-CISSO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CISSO.release.xcconfig"; path = "Target Support Files/Pods-CISSO/Pods-CISSO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE33BCAC8B267F1280E9778 /* Pods_CISSO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03976C646F6A41BAE20C09F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FC217A12AF10FA6934FEF0A /* Pods_CISSO.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		370A88202410E77200CCF9E6 = {
 			isa = PBXGroup;
 			children = (
 				370A882C2410E77200CCF9E6 /* CISSO */,
 				370A882B2410E77200CCF9E6 /* Products */,
+				52C5BBD6085DAD9336C8D6AF /* Pods */,
+				03976C646F6A41BAE20C09F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +106,16 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		52C5BBD6085DAD9336C8D6AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				529FA0D46E140D48FA034C21 /* Pods-CISSO.debug.xcconfig */,
+				CAB4A9F31087E93D5325B00B /* Pods-CISSO.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -109,10 +134,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 370A88322410E77200CCF9E6 /* Build configuration list for PBXNativeTarget "CISSO" */;
 			buildPhases = (
+				D1B5A7A67CDB921C4CCDCF9E /* [CP] Check Pods Manifest.lock */,
 				370A88252410E77200CCF9E6 /* Headers */,
 				370A88262410E77200CCF9E6 /* Sources */,
 				370A88272410E77200CCF9E6 /* Frameworks */,
 				370A88282410E77200CCF9E6 /* Resources */,
+				68AFCC94F293D9105D04B24F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,6 +191,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68AFCC94F293D9105D04B24F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CISSO/Pods-CISSO-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CISSO/Pods-CISSO-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CISSO/Pods-CISSO-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1B5A7A67CDB921C4CCDCF9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CISSO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		370A88262410E77200CCF9E6 /* Sources */ = {
@@ -303,6 +372,7 @@
 		};
 		370A88332410E77200CCF9E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 529FA0D46E140D48FA034C21 /* Pods-CISSO.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -327,6 +397,7 @@
 		};
 		370A88342410E77200CCF9E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAB4A9F31087E93D5325B00B /* Pods-CISSO.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
