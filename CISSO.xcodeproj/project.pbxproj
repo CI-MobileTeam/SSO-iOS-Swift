@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,14 @@
 		370A883A2410EC2D00CCF9E6 /* LoginModelForLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForLine.swift; sourceTree = "<group>"; };
 		370A883B2410EC2D00CCF9E6 /* LoginModelForApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForApple.swift; sourceTree = "<group>"; };
 		370A88402410EC3E00CCF9E6 /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
+		3723A62F241631E300C141A9 /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A631241631E300C141A9 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A633241631E300C141A9 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A635241631E300C141A9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A637241631E300C141A9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A639241631E300C141A9 /* GTMAppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMAppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A63B241631E300C141A9 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3723A63D241631E300C141A9 /* LineSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LineSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		529FA0D46E140D48FA034C21 /* Pods-CISSO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CISSO.debug.xcconfig"; path = "Target Support Files/Pods-CISSO/Pods-CISSO.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB4A9F31087E93D5325B00B /* Pods-CISSO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CISSO.release.xcconfig"; path = "Target Support Files/Pods-CISSO/Pods-CISSO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +53,14 @@
 		03976C646F6A41BAE20C09F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3723A62F241631E300C141A9 /* AppAuth.framework */,
+				3723A631241631E300C141A9 /* FacebookCore.framework */,
+				3723A633241631E300C141A9 /* FacebookLogin.framework */,
+				3723A635241631E300C141A9 /* FBSDKCoreKit.framework */,
+				3723A637241631E300C141A9 /* FBSDKLoginKit.framework */,
+				3723A639241631E300C141A9 /* GTMAppAuth.framework */,
+				3723A63B241631E300C141A9 /* GTMSessionFetcher.framework */,
+				3723A63D241631E300C141A9 /* LineSDK.framework */,
 				1FC217A12AF10FA6934FEF0A /* Pods_CISSO.framework */,
 			);
 			name = Frameworks;
@@ -112,7 +128,6 @@
 				529FA0D46E140D48FA034C21 /* Pods-CISSO.debug.xcconfig */,
 				CAB4A9F31087E93D5325B00B /* Pods-CISSO.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -317,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
