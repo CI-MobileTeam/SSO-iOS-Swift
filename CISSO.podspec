@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "Hank Chien" => "hankchien@cloud-interactive.com" }
   spec.platform     = :ios, "10.0"
-  spec.source       = { :git => "https://github.com/CI-MobileTeam/SSO-iOS-Swift/CISSO.git", :tag => spec.version }
+  spec.source       = { :git => "https://github.com/CI-MobileTeam/SSO-iOS-Swift/SSO-iOS-Swift.git", :tag => spec.version }
   spec.swift_version = '5.0'
   spec.source_files = "CISSO/**/*.swift"
   spec.frameworks = "UIKit"
