@@ -31,6 +31,8 @@ Pod::Spec.new do |spec|
   spec.dependency 'FacebookLogin'
   spec.dependency 'GoogleSignIn', '5.0.2'
   spec.dependency 'LineSDKSwift', '5.5.1'
+  spec.dependency 'FacebookSDK/CoreKit'
+  spec.dependency 'FBSDKShareKit'
   spec.static_framework = true
   spec.requires_arc = true
 
