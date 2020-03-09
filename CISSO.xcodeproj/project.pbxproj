@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		370A883D2410EC2D00CCF9E6 /* LoginModelForLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A883A2410EC2D00CCF9E6 /* LoginModelForLine.swift */; };
 		370A883E2410EC2D00CCF9E6 /* LoginModelForApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A883B2410EC2D00CCF9E6 /* LoginModelForApple.swift */; };
 		370A88412410EC3E00CCF9E6 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A88402410EC3E00CCF9E6 /* DelegateViewController.swift */; };
-		B8F274AF9C36AD686FC275A2 /* Pods_CISSO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB74CD5751381E9539D0E249 /* Pods_CISSO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8F274AF9C36AD686FC275A2 /* Pods_CISSO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +110,6 @@
 				27D89E1F763B402E531C0C71 /* Pods-CISSO.debug.xcconfig */,
 				3711A327F95776C335724AD8 /* Pods-CISSO.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
