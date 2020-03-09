@@ -7,7 +7,7 @@ target 'CISSO' do
   use_frameworks!
 
   # Pods for CISSO
-  pod 'FacebookLogin'
+  pod 'FacebookLogin', :modular_headers => true
   pod 'GoogleSignIn', '5.0.2'
   pod 'LineSDKSwift', '5.5.1'
 
