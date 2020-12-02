@@ -32,14 +32,14 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
-  - LineSDKSwift (5.5.1):
-    - LineSDKSwift/Core (= 5.5.1)
-  - LineSDKSwift/Core (5.5.1)
+  - LineSDKSwift (5.7.0):
+    - LineSDKSwift/Core (= 5.7.0)
+  - LineSDKSwift/Core (5.7.0)
 
 DEPENDENCIES:
   - FacebookLogin
-  - GoogleSignIn (= 5.0.2)
-  - LineSDKSwift (= 5.5.1)
+  - GoogleSignIn
+  - LineSDKSwift
 
 SPEC REPOS:
   trunk:
@@ -62,8 +62,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  LineSDKSwift: 7db297b690b592fbbac94b9096534cf78fceaaaa
+  LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
 
-PODFILE CHECKSUM: 4f3b1d0a578c69fc2876869ce78a983b9201e45a
+PODFILE CHECKSUM: 5cc6203df6657434e966343f62ee0af545a65ec1
 
 COCOAPODS: 1.9.1

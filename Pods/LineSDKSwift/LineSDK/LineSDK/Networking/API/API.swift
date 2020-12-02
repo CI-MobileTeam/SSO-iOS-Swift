@@ -43,7 +43,8 @@ public enum API {
     ///
     public static func getProfile(
         callbackQueue queue: CallbackQueue = .currentMainOrAsync,
-        completionHandler completion: @escaping (Result<UserProfile, LineSDKError>) -> Void)
+        completionHandler completion: @escaping (Result<UserProfile, LineSDKError>) -> Void
+    )
     {
         let request = GetUserProfileRequest()
         Session.shared.send(request, callbackQueue: queue, completionHandler: completion)
@@ -59,7 +60,8 @@ public enum API {
     ///
     public static func getBotFriendshipStatus(
         callbackQueue queue: CallbackQueue = .currentMainOrAsync,
-        completionHandler completion: @escaping (Result<GetBotFriendshipStatusRequest.Response, LineSDKError>) -> Void)
+        completionHandler completion: @escaping (Result<GetBotFriendshipStatusRequest.Response, LineSDKError>) -> Void
+    )
     {
         let request = GetBotFriendshipStatusRequest()
         Session.shared.send(request, callbackQueue: queue, completionHandler: completion)

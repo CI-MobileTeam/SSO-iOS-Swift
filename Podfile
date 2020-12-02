@@ -8,8 +8,8 @@ target 'CISSO' do
 
   # Pods for CISSO
   pod 'FacebookLogin'
-  pod 'GoogleSignIn', '5.0.2'
-  pod 'LineSDKSwift', '5.5.1'
+  pod 'GoogleSignIn'
+  pod 'LineSDKSwift'
 
 end
 

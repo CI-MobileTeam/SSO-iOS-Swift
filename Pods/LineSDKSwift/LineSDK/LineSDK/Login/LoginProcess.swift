@@ -36,9 +36,11 @@ public class LoginProcess {
         let nonce: String?
         let botPrompt: LoginManager.BotPrompt?
         let preferredWebPageLanguage: LoginManager.WebPageLanguage?
+        let onlyWebLogin: Bool
     }
     
     /// Observes application switching to foreground.
+    /// 
     /// - Note:
     /// If the app switching happens during login process, we want to
     /// inspect the event of switched back from another app (Safari or LINE or any other)
@@ -136,7 +138,9 @@ public class LoginProcess {
             processID: self.processID,
             nonce: self.IDTokenNonce,
             botPrompt: self.parameters.botPromptStyle,
-            preferredWebPageLanguage: self.parameters.preferredWebPageLanguage)
+            preferredWebPageLanguage: self.parameters.preferredWebPageLanguage,
+            onlyWebLogin: self.parameters.onlyWebLogin
+        )
         #if targetEnvironment(macCatalyst)
         // On macCatalyst, we only support web login
         self.startWebLoginFlow(parameters)
@@ -252,21 +256,13 @@ public class LoginProcess {
         // It seems that plan A in the comment above also works great (even when the background execution time
         // expired). But I cannot explain why the `URLSession` can retry the request even when background task ends.
         // Maybe it is some internal implementation. Delay the request now works fine so we choose it as a workaround.
+        //
+        // In some edge cases, the network would be still lost after 0.3 sec of delay. But it should be very rare.
+        // So an auto retry for NSURLErrorNetworkConnectionLost (-1005) is applied to make sure the error not happen.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             do {
                 let response = try LoginProcessURLResponse(from: url, validatingWith: self.processID)
-                let tokenExchangeRequest = PostExchangeTokenRequest(
-                    channelID: self.configuration.channelID,
-                    code: response.requestToken,
-                    codeVerifier: self.pkce.codeVerifier,
-                    redirectURI: Constant.thirdPartyAppReturnURL,
-                    optionalRedirectURI: self.configuration.universalLinkURL?.absoluteString)
-                Session.shared.send(tokenExchangeRequest) { tokenResult in
-                    switch tokenResult {
-                    case .success(let token): self.invokeSuccess(result: token, response: response)
-                    case .failure(let error): self.invokeFailure(error: error)
-                    }
-                }
+                self.exchangeToken(response: response, canRetryOnNetworkLost: true)
             } catch {
                 self.invokeFailure(error: error)
             }
@@ -274,9 +270,33 @@ public class LoginProcess {
 
         return true
     }
+
+    private func exchangeToken(response: LoginProcessURLResponse, canRetryOnNetworkLost: Bool) {
+
+        let tokenExchangeRequest = PostExchangeTokenRequest(
+            channelID: self.configuration.channelID,
+            code: response.requestToken,
+            codeVerifier: self.pkce.codeVerifier,
+            redirectURI: Constant.thirdPartyAppReturnURL,
+            optionalRedirectURI: self.configuration.universalLinkURL?.absoluteString)
+        Session.shared.send(tokenExchangeRequest) { tokenResult in
+            switch tokenResult {
+            case .success(let token): self.invokeSuccess(result: token, response: response)
+            case .failure(let error):
+                if error.isURLSessionErrorCode(sessionErrorCode: NSURLErrorNetworkConnectionLost) && canRetryOnNetworkLost {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.exchangeToken(response: response, canRetryOnNetworkLost: false)
+                    }
+                } else {
+                    self.invokeFailure(error: error)
+                }
+            }
+        }
+
+    }
     
     private var canUseLineAuthV2: Bool {
-        return UIApplication.shared.canOpenURL(Constant.lineAppAuthURLv2)
+        return Constant.isLINEInstalled
     }
     
     private func resetFlows() {
@@ -425,6 +445,9 @@ extension URL {
         ]
         if let lang = flowParameters.preferredWebPageLanguage {
             parameters["ui_locales"] = lang.rawValue
+        }
+        if flowParameters.onlyWebLogin {
+            parameters["disable_ios_auto_login"] = true
         }
 
         let encoder = URLQueryEncoder(parameters: parameters)
