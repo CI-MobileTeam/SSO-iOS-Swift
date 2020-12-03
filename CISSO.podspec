@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CISSO"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.4"
   spec.summary      = "just for third party login"
   spec.description  = "just for third party login first test"
 
@@ -35,5 +35,9 @@ Pod::Spec.new do |spec|
   spec.dependency 'FBSDKShareKit'
   spec.static_framework = true
   spec.requires_arc = true
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end
