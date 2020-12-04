@@ -176,10 +176,17 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
                 }
                 break
             case .failure(let error):
-                if let callback = self.loginCallBack {
-                    callback(.failure(error: error))
+                switch error {
+                case .authorizeFailed(reason: .userCancelled):
+                    if let callback = self.loginCallBack {
+                        callback(.cancelled)
+                    }
+                    break
+                default:
+                    if let callback = self.loginCallBack {
+                        callback(.failure(error: error))
+                    }
                 }
-                break
             }
         }
     }
@@ -232,9 +239,16 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
 }
 
 extension ThirdPartyLoginManager: DelegateViewControllerCallBack{
+    
     func loginSuccessCallBack(success: Bool, model: LoginModelSpec, error: Error?) {
         if let callback = self.loginCallBack {
             callback(.success(model: model))
+        }
+    }
+    
+    func loginCancel() {
+        if let callback = self.loginCallBack {
+            callback(.cancelled)
         }
     }
     

@@ -7,24 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		370A22AF23FCD3E20095F18B /* ThirdPartyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A22AE23FCD3E20095F18B /* ThirdPartyLoginManager.swift */; };
-		3721472723FCE7DB005D7CAB /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3721472623FCE7DB005D7CAB /* DelegateViewController.swift */; };
-		3721472A23FD1021005D7CAB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3721472923FD1021005D7CAB /* LoginModel.swift */; };
-		3721472C23FD1121005D7CAB /* LoginModelForLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3721472B23FD1121005D7CAB /* LoginModelForLine.swift */; };
 		3732DBB223FCD2B10080EBD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3732DBB123FCD2B10080EBD8 /* AppDelegate.swift */; };
 		3732DBB423FCD2B10080EBD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3732DBB323FCD2B10080EBD8 /* ViewController.swift */; };
 		3732DBB723FCD2B10080EBD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3732DBB523FCD2B10080EBD8 /* Main.storyboard */; };
 		3732DBB923FCD2B30080EBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3732DBB823FCD2B30080EBD8 /* Assets.xcassets */; };
 		3732DBBC23FCD2B30080EBD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3732DBBA23FCD2B30080EBD8 /* LaunchScreen.storyboard */; };
-		374E1ED42406431A00CA4791 /* LoginModelForApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E1ED32406431A00CA4791 /* LoginModelForApple.swift */; };
 		387E56B02896818D2215FCB7 /* Pods_SSO_iOS_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A490D90FE5E6B50F93517FF1 /* Pods_SSO_iOS_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		370A22AE23FCD3E20095F18B /* ThirdPartyLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginManager.swift; sourceTree = "<group>"; };
-		3721472623FCE7DB005D7CAB /* DelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
-		3721472923FD1021005D7CAB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		3721472B23FD1121005D7CAB /* LoginModelForLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelForLine.swift; sourceTree = "<group>"; };
 		3732DBAE23FCD2B10080EBD8 /* SSO-iOS-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSO-iOS-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3732DBB123FCD2B10080EBD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3732DBB323FCD2B10080EBD8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +23,6 @@
 		3732DBB823FCD2B30080EBD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3732DBBB23FCD2B30080EBD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3732DBBD23FCD2B30080EBD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		374E1ED32406431A00CA4791 /* LoginModelForApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelForApple.swift; sourceTree = "<group>"; };
 		374E1ED52406463F00CA4791 /* SSO-iOS-swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SSO-iOS-swift.entitlements"; sourceTree = "<group>"; };
 		49F026D1A7A9A70C8B4287AE /* Pods-SSO-iOS-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSO-iOS-swift.debug.xcconfig"; path = "Target Support Files/Pods-SSO-iOS-swift/Pods-SSO-iOS-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		51439A56AFD6726E6D2C789E /* Pods-SSO-iOS-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSO-iOS-swift.release.xcconfig"; path = "Target Support Files/Pods-SSO-iOS-swift/Pods-SSO-iOS-swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,32 +41,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		370A22AD23FCD3BD0095F18B /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				370A22AE23FCD3E20095F18B /* ThirdPartyLoginManager.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		3721472523FCE7B5005D7CAB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3721472623FCE7DB005D7CAB /* DelegateViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		3721472823FCE9F3005D7CAB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3721472923FD1021005D7CAB /* LoginModel.swift */,
-				3721472B23FD1121005D7CAB /* LoginModelForLine.swift */,
-				374E1ED32406431A00CA4791 /* LoginModelForApple.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		3732DBA523FCD2B10080EBD8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				374E1ED52406463F00CA4791 /* SSO-iOS-swift.entitlements */,
-				3721472823FCE9F3005D7CAB /* Model */,
-				3721472523FCE7B5005D7CAB /* ViewController */,
-				370A22AD23FCD3BD0095F18B /* Helper */,
 				3732DBB123FCD2B10080EBD8 /* AppDelegate.swift */,
 				3732DBB323FCD2B10080EBD8 /* ViewController.swift */,
 				3732DBB523FCD2B10080EBD8 /* Main.storyboard */,
@@ -263,13 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3721472A23FD1021005D7CAB /* LoginModel.swift in Sources */,
-				3721472C23FD1121005D7CAB /* LoginModelForLine.swift in Sources */,
 				3732DBB423FCD2B10080EBD8 /* ViewController.swift in Sources */,
-				3721472723FCE7DB005D7CAB /* DelegateViewController.swift in Sources */,
 				3732DBB223FCD2B10080EBD8 /* AppDelegate.swift in Sources */,
-				370A22AF23FCD3E20095F18B /* ThirdPartyLoginManager.swift in Sources */,
-				374E1ED42406431A00CA4791 /* LoginModelForApple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

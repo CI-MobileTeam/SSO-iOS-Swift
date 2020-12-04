@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CISSO
 
 class ViewController: UIViewController {
 
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func loginWithFb(_ sender: Any) {
-        ThirdPartyLoginManager.share.loginWithThirdParty(type:.LINELOGIN , presentVC: self) { (result) in
+        SSOManager.shared().loginWithThirdParty(type: .APPLELOGIN, presentVC: self) { (result) in
             switch result{
             case .success(let model):
                 print(model.userName)
@@ -29,7 +29,5 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-
 }
 

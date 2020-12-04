@@ -8,8 +8,5 @@ target 'SSO-iOS-swift' do
   # Pods for SSO-iOS-swift
   pod 'AFNetworking', '~> 3.0'
   pod 'IQKeyboardManager'
-  pod 'FacebookLogin'
-  pod 'GoogleSignIn', '5.0.2'
-  pod 'LineSDKSwift', '5.5.1'
-
+  pod 'CISSO'
 end

@@ -14,6 +14,7 @@ import FacebookCore
 
 protocol DelegateViewControllerCallBack: AnyObject {
     func loginSuccessCallBack(success:Bool, model:LoginModelSpec, error:Error?) -> ()
+    func loginCancel() -> ()
     func loginFailCallBack(error:Error) -> ()
 }
 
@@ -31,7 +32,11 @@ extension DelegateViewController: GIDSignInDelegate{
         if (error == nil) {
             self.delegate?.loginSuccessCallBack(success: true, model: LoginModel(userName: user.profile.name, userID: user.userID, userToken: user.authentication.accessToken), error: Optional(nil))
         }else{
-            self.delegate?.loginFailCallBack(error: error)
+            if (error as NSError).code == GIDSignInErrorCode.canceled.rawValue {
+                self.delegate?.loginCancel()
+            }else{
+                self.delegate?.loginFailCallBack(error: error)
+            }
         }
     }
 }

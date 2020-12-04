@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import LineSDK
-import FacebookCore
+import CISSO
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        ThirdPartyLoginManager.share.lineDataSource = self
-        ThirdPartyLoginManager.share.googleDataSource = self
-        ThirdPartyLoginManager.share.facebookDataSource = self
-        
-        ThirdPartyLoginManager.share.setConfig(application: application, launchOptions: launchOptions, dataSource: self)
-        
+        SSOManager.shared().facebookDataSource(dataSource: self)
+        SSOManager.shared().lineDataSource(dataSource: self)
+        SSOManager.shared().googleDataSource(dataSource: self)
+        SSOManager.shared().setConfig(application: application, launchOptions: launchOptions, dataSource: self)
         return true
     }
 
@@ -50,9 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        if ThirdPartyLoginManager.share.handleOpenUrl(app: app, url: url, options: options){
-            return true
-        }
+
         
         return true
 
@@ -88,7 +83,7 @@ extension AppDelegate: FacebookDataSource{
     var facebookAppID: String {
         return "186438775778435"
     }
-    
+
     var facebookDisplayName: String {
         return "Cloud-interactive login"
     }
