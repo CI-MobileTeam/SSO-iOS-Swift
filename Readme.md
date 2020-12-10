@@ -110,6 +110,21 @@ extension AppDelegate: FacebookDataSource{
 ```
 
 ## Fiveth Step
+在Appdelegate中的openurl handle各平台轉跳邏輯
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+
+    
+    return SSOManager.shared().handleOpenUrl(app: app, url: url, options: options)
+
+
+}
+
+```
+
+## Sixth Step
 在您想要執行登入動作時呼叫func並且選擇好登入type, handle result即可完成登入動作
 
 ```swift

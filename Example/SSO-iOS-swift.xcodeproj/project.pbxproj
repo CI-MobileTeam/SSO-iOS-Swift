@@ -17,7 +17,6 @@
 		E42F90E12580A2E000A32264 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90DE2580A2E000A32264 /* LoginModel.swift */; };
 		E42F90E22580A2E000A32264 /* LoginModelForLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90DF2580A2E000A32264 /* LoginModelForLine.swift */; };
 		E42F90E32580A2E000A32264 /* LoginModelForApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90E02580A2E000A32264 /* LoginModelForApple.swift */; };
-		E4C41C712581CE4000BB44D7 /* ThirdPartyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C41C702581CE4000BB44D7 /* ThirdPartyLoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,6 @@
 		E42F90DE2580A2E000A32264 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		E42F90DF2580A2E000A32264 /* LoginModelForLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForLine.swift; sourceTree = "<group>"; };
 		E42F90E02580A2E000A32264 /* LoginModelForApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForApple.swift; sourceTree = "<group>"; };
-		E4C41C702581CE4000BB44D7 /* ThirdPartyLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +73,6 @@
 				374E1ED52406463F00CA4791 /* SSO-iOS-swift.entitlements */,
 				E42F90DD2580A2E000A32264 /* Model */,
 				E42F90DA2580A2C800A32264 /* DelegateViewController.swift */,
-				E4C41C702581CE4000BB44D7 /* ThirdPartyLoginManager.swift */,
 				3732DBB123FCD2B10080EBD8 /* AppDelegate.swift */,
 				3732DBB323FCD2B10080EBD8 /* ViewController.swift */,
 				3732DBB523FCD2B10080EBD8 /* Main.storyboard */,
@@ -250,7 +247,6 @@
 			files = (
 				E42F90E12580A2E000A32264 /* LoginModel.swift in Sources */,
 				E42F90E22580A2E000A32264 /* LoginModelForLine.swift in Sources */,
-				E4C41C712581CE4000BB44D7 /* ThirdPartyLoginManager.swift in Sources */,
 				3732DBB423FCD2B10080EBD8 /* ViewController.swift in Sources */,
 				E42F90DB2580A2C800A32264 /* DelegateViewController.swift in Sources */,
 				3732DBB223FCD2B10080EBD8 /* AppDelegate.swift in Sources */,

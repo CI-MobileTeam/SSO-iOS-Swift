@@ -19,7 +19,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - CISSO (1.0.4):
+  - CISSO (1.0.6):
     - FacebookLogin
     - FacebookSDK/CoreKit
     - FBSDKShareKit
@@ -89,7 +89,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  CISSO: 9d0724a8f59eb00d1b9f91f52d623327e4e13371
+  CISSO: 5f99ad27225844e186814617edf1351f38191ae2
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FacebookSDK: 40811aca4741187ac7e6b175f261edee4edfc58a

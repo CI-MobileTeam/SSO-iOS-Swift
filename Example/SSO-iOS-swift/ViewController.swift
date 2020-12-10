@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CISSO
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func loginWithFb(_ sender: Any) {
-        ThirdPartyLoginManager.share.loginWithThirdParty(type: .GOOGLELOGIN, presentVC: self) { (result) in
+        SSOManager.shared().loginWithThirdParty(type: .GOOGLELOGIN, presentVC: self) { (result) in
             switch result{
             case .success(let model):
                 print(model.userName)
@@ -29,14 +29,12 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func check(_ sender: Any) {
-        ThirdPartyLoginManager.share.checkAuthen { (result) in
-            ThirdPartyLoginManager.share.checkAuthen { (result) in
-                print("authenResult=\(result)")
-            }
+        SSOManager.shared().checkAuthen { (result) in
+            print("authenResult=\(result)")
         }
     }
     @IBAction func logout(_ sender: Any) {
-        ThirdPartyLoginManager.share.logout {
+        SSOManager.shared().logout {
             print("logout")
         }
     }
