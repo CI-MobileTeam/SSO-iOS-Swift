@@ -28,6 +28,10 @@ public protocol SSOAction{
     func handleOpenUrl(app:UIApplication, url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool
 
     func loginWithThirdParty(type:LoginType, presentVC:UIViewController, completion:@escaping (Result<LoginModelSpec, Error>) -> Void)
+    
+    func checkAuthen(completion:@escaping ((Bool) -> Void))
+    
+    func logout(completion:@escaping() -> Void)
 
 }
 
@@ -40,8 +44,8 @@ public class SSOManager {
 
 
 
-public enum LoginType {
-    case APPLELOGIN
+public enum LoginType:Int {
+    case APPLELOGIN = 1
     case FACEBOOKLOGIN
     case GOOGLELOGIN
     case LINELOGIN
@@ -86,7 +90,8 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
     func lineDataSource(dataSource: LineDataSource) {
         self.lineDataSource = dataSource
     }
-    
+    private var appleDataKey = "CISSOAPPLEKEY"
+    private var loginTypeKey = "CISSOLOGINTYPEKEY"
     public static let share: SSODataSource & SSOAction = ThirdPartyLoginManager()
     weak var lineDataSource:LineDataSource?
     weak var facebookDataSource:FacebookDataSource?
@@ -98,7 +103,24 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
         vc.delegate = self
         return vc
     }()
-    
+    private var _type: LoginType!
+    private var type: LoginType?{
+        get{
+            if (_type == nil) {
+                guard let loginType = LoginType(rawValue: UserDefaults.standard.integer(forKey: loginTypeKey)) else {
+                    return nil
+                }
+                return loginType
+            }else{
+                return _type
+            }
+        }
+        set{
+            UserDefaults.standard.setValue(newValue?.rawValue, forKey: loginTypeKey)
+            _type = newValue
+        }
+    }
+
     public func setConfig(application:UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?, dataSource:ThirdPartyLoginManagerDataSource) -> () {
         
         if let dataSource = lineDataSource {
@@ -144,6 +166,76 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
         return false
     }
     
+    public func checkAuthen(completion:@escaping ((Bool) -> Void)) {
+        switch self.type {
+        case .APPLELOGIN:
+            if #available(iOS 13.0, *){
+                let local = UserDefaults.standard
+                guard let user = local.value(forKey: self.appleDataKey) as? String else{
+                    completion(false)
+                    break
+                }
+                let auth = ASAuthorizationAppleIDProvider()
+                auth.getCredentialState(forUserID: user) { (credential, error) in
+                    switch credential {
+                    case .authorized:
+                        completion(true)
+                    default:
+                        completion(false)
+                    }
+                }
+            }else{
+                completion(false)
+            }
+            break
+        case .FACEBOOKLOGIN:
+            if let token = AccessToken.current, !token.isExpired {
+                completion(true)
+            }else{
+                completion(false)
+            }
+            break
+        case .GOOGLELOGIN:
+            if let signIn = GIDSignIn.sharedInstance()?.hasPreviousSignIn() {
+                completion(signIn)
+            }else{
+                completion(false)
+            }
+            break
+        case .LINELOGIN:
+            completion(LoginManager.shared.isAuthorized)
+            break
+        default:
+            completion(false)
+            break
+        }
+    }
+    
+    public func logout(completion:@escaping() -> Void){
+        switch self.type {
+        case .FACEBOOKLOGIN:
+            LoginManager().logOut()
+            self.removeLocalData()
+            completion()
+            break
+        case .LINELOGIN:
+            LoginManager.shared.logout { [weak self] (result) in
+                self?.removeLocalData()
+                completion()
+            }
+            break
+        case .GOOGLELOGIN:
+            GIDSignIn.sharedInstance()?.signOut()
+            self.removeLocalData()
+            completion()
+            break
+        default:
+            self.removeLocalData()
+            completion()
+            break
+        }
+    }
+    
     public func loginWithThirdParty(type:LoginType, presentVC:UIViewController, completion:@escaping (Result<LoginModelSpec, Error>) -> Void){
         self.loginCallBack = completion
         switch type {
@@ -162,28 +254,35 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
         }
     }
     
+    private func removeLocalData() {
+        let localData = UserDefaults.standard
+        localData.setValue(nil, forKey: self.appleDataKey)
+        localData.set(0, forKey: self.loginTypeKey)
+    }
+    
     private func loginWithGoogle(presentVC:UIViewController) -> () {
         GIDSignIn.sharedInstance()?.presentingViewController = presentVC
         GIDSignIn.sharedInstance()?.signIn()
     }
     
     private func loginWithLine(presentVC:UIViewController) -> () {
-        LoginManager.shared.login(permissions: [.profile,.friends,.groups]/*, in: presentVC, options:.botPromptNormal*/) {(result) in
+        LoginManager.shared.login(permissions: [.profile,.friends,.groups]/*, in: presentVC, options:.botPromptNormal*/) { [weak self] (result) in
             switch result{
             case .success(let loginResult):
-                if let callback = self.loginCallBack {
+                if let callback = self?.loginCallBack {
+                    self?.type = .LINELOGIN
                     callback(.success(model: loginResult))
                 }
                 break
             case .failure(let error):
                 switch error {
                 case .authorizeFailed(reason: .userCancelled):
-                    if let callback = self.loginCallBack {
+                    if let callback = self?.loginCallBack {
                         callback(.cancelled)
                     }
                     break
                 default:
-                    if let callback = self.loginCallBack {
+                    if let callback = self?.loginCallBack {
                         callback(.failure(error: error))
                     }
                 }
@@ -193,25 +292,26 @@ class ThirdPartyLoginManager: NSObject, SSODataSource, SSOAction{
     
     private func loginWithFB(presentVC:UIViewController) -> () {
         let loginManager = LoginManager()
-        loginManager.logIn(permissions: [.publicProfile], viewController: presentVC) { (Result) in
+        loginManager.logIn(permissions: [.publicProfile], viewController: presentVC) { [weak self] (Result) in
             switch Result{
             case .success( _, _, let AccessToken):
                 Profile.loadCurrentProfile { (profile, error) in
                     if let file = profile {
                         let model = LoginModel(userName: file.name ?? "no name", userID: AccessToken.userID, userToken:AccessToken.tokenString)
-                        if let callback = self.loginCallBack {
+                        if let callback = self?.loginCallBack {
+                            self?.type = .FACEBOOKLOGIN
                             callback(.success(model: model))
                         }
                     }
                 }
                 break
             case .failed(let error):
-                if let callback = self.loginCallBack {
+                if let callback = self?.loginCallBack {
                     callback(.failure(error: error))
                 }
                 break
             case .cancelled:
-                if let callback = self.loginCallBack {
+                if let callback = self?.loginCallBack {
                     callback(.cancelled)
                 }
                 break
@@ -242,6 +342,7 @@ extension ThirdPartyLoginManager: DelegateViewControllerCallBack{
     
     func loginSuccessCallBack(success: Bool, model: LoginModelSpec, error: Error?) {
         if let callback = self.loginCallBack {
+            self.type = .GOOGLELOGIN
             callback(.success(model: model))
         }
     }
@@ -271,6 +372,9 @@ extension ThirdPartyLoginManager: ASAuthorizationControllerDelegate{
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {return}
         if let callback = self.loginCallBack {
+            self.type = .APPLELOGIN
+            let localData = UserDefaults.standard
+            localData.setValue(appleIDCredential.user, forKey: self.appleDataKey)
             callback(.success(model: appleIDCredential))
         }
     }

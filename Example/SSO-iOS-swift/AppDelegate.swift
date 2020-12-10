@@ -16,10 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        SSOManager.shared().facebookDataSource(dataSource: self)
-        SSOManager.shared().lineDataSource(dataSource: self)
-        SSOManager.shared().googleDataSource(dataSource: self)
-        SSOManager.shared().setConfig(application: application, launchOptions: launchOptions, dataSource: self)
+//        SSOManager.shared().facebookDataSource(dataSource: self)
+//        SSOManager.shared().lineDataSource(dataSource: self)
+//        SSOManager.shared().googleDataSource(dataSource: self)
+//        SSOManager.shared().setConfig(application: application, launchOptions: launchOptions, dataSource: self)
+        ThirdPartyLoginManager.share.facebookDataSource(dataSource: self)
+        ThirdPartyLoginManager.share.lineDataSource(dataSource: self)
+        ThirdPartyLoginManager.share.googleDataSource(dataSource: self)
+        ThirdPartyLoginManager.share.setConfig(application: application, launchOptions: launchOptions, dataSource: self)
         return true
     }
 
@@ -49,7 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         
-        return true
+        return ThirdPartyLoginManager.share.handleOpenUrl(app: app, url: url, options: options)
+
 
     }
     

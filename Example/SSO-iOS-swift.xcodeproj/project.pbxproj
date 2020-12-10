@@ -13,6 +13,11 @@
 		3732DBB923FCD2B30080EBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3732DBB823FCD2B30080EBD8 /* Assets.xcassets */; };
 		3732DBBC23FCD2B30080EBD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3732DBBA23FCD2B30080EBD8 /* LaunchScreen.storyboard */; };
 		387E56B02896818D2215FCB7 /* Pods_SSO_iOS_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A490D90FE5E6B50F93517FF1 /* Pods_SSO_iOS_swift.framework */; };
+		E42F90DB2580A2C800A32264 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90DA2580A2C800A32264 /* DelegateViewController.swift */; };
+		E42F90E12580A2E000A32264 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90DE2580A2E000A32264 /* LoginModel.swift */; };
+		E42F90E22580A2E000A32264 /* LoginModelForLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90DF2580A2E000A32264 /* LoginModelForLine.swift */; };
+		E42F90E32580A2E000A32264 /* LoginModelForApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F90E02580A2E000A32264 /* LoginModelForApple.swift */; };
+		E4C41C712581CE4000BB44D7 /* ThirdPartyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C41C702581CE4000BB44D7 /* ThirdPartyLoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		49F026D1A7A9A70C8B4287AE /* Pods-SSO-iOS-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSO-iOS-swift.debug.xcconfig"; path = "Target Support Files/Pods-SSO-iOS-swift/Pods-SSO-iOS-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		51439A56AFD6726E6D2C789E /* Pods-SSO-iOS-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSO-iOS-swift.release.xcconfig"; path = "Target Support Files/Pods-SSO-iOS-swift/Pods-SSO-iOS-swift.release.xcconfig"; sourceTree = "<group>"; };
 		A490D90FE5E6B50F93517FF1 /* Pods_SSO_iOS_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSO_iOS_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E42F90DA2580A2C800A32264 /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DelegateViewController.swift; path = ../../CISSO/ViewController/DelegateViewController.swift; sourceTree = "<group>"; };
+		E42F90DE2580A2E000A32264 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		E42F90DF2580A2E000A32264 /* LoginModelForLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForLine.swift; sourceTree = "<group>"; };
+		E42F90E02580A2E000A32264 /* LoginModelForApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForApple.swift; sourceTree = "<group>"; };
+		E4C41C702581CE4000BB44D7 /* ThirdPartyLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				374E1ED52406463F00CA4791 /* SSO-iOS-swift.entitlements */,
+				E42F90DD2580A2E000A32264 /* Model */,
+				E42F90DA2580A2C800A32264 /* DelegateViewController.swift */,
+				E4C41C702581CE4000BB44D7 /* ThirdPartyLoginManager.swift */,
 				3732DBB123FCD2B10080EBD8 /* AppDelegate.swift */,
 				3732DBB323FCD2B10080EBD8 /* ViewController.swift */,
 				3732DBB523FCD2B10080EBD8 /* Main.storyboard */,
@@ -88,6 +101,17 @@
 				A490D90FE5E6B50F93517FF1 /* Pods_SSO_iOS_swift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E42F90DD2580A2E000A32264 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E42F90DE2580A2E000A32264 /* LoginModel.swift */,
+				E42F90DF2580A2E000A32264 /* LoginModelForLine.swift */,
+				E42F90E02580A2E000A32264 /* LoginModelForApple.swift */,
+			);
+			name = Model;
+			path = ../../CISSO/Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,8 +248,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42F90E12580A2E000A32264 /* LoginModel.swift in Sources */,
+				E42F90E22580A2E000A32264 /* LoginModelForLine.swift in Sources */,
+				E4C41C712581CE4000BB44D7 /* ThirdPartyLoginManager.swift in Sources */,
 				3732DBB423FCD2B10080EBD8 /* ViewController.swift in Sources */,
+				E42F90DB2580A2C800A32264 /* DelegateViewController.swift in Sources */,
 				3732DBB223FCD2B10080EBD8 /* AppDelegate.swift in Sources */,
+				E42F90E32580A2E000A32264 /* LoginModelForApple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

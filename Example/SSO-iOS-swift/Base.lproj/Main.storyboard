@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W0z-XL-4eb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W0z-XL-4eb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhG-W5-C3n">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhG-W5-C3n">
                                 <rect key="frame" x="162" y="445" width="90" height="60"/>
                                 <color key="backgroundColor" red="0.1176470588" green="0.35686274509999999" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -30,13 +30,33 @@
                                     <action selector="loginWithFb:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DSZ-qk-G2V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuZ-aS-mBt">
+                                <rect key="frame" x="185" y="555" width="44" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.53725490200000003" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Check"/>
+                                <connections>
+                                    <action selector="check:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nuq-Nz-U7B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d9-xx-9xn">
+                                <rect key="frame" x="183" y="635" width="48" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.53725490200000003" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OWz-ld-aHT"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2d9-xx-9xn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1kt-Cw-uxP"/>
+                            <constraint firstItem="ZuZ-aS-mBt" firstAttribute="top" secondItem="FhG-W5-C3n" secondAttribute="bottom" constant="50" id="APG-AD-jS5"/>
                             <constraint firstItem="FhG-W5-C3n" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hk5-Wy-KYW"/>
                             <constraint firstItem="FhG-W5-C3n" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ln5-pQ-EA8"/>
+                            <constraint firstItem="2d9-xx-9xn" firstAttribute="top" secondItem="ZuZ-aS-mBt" secondAttribute="bottom" constant="50" id="qg9-q4-RPb"/>
+                            <constraint firstItem="ZuZ-aS-mBt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wRX-KF-FdN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Reg-DO-VZR"/>
                 </viewController>

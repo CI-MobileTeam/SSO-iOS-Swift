@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CISSO"
-  spec.version      = "1.0.5"
+  spec.version      = "1.0.6"
   spec.summary      = "just for third party login"
   spec.description  = "just for third party login first test"
 

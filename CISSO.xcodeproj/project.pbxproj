@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		370A882F2410E77200CCF9E6 /* CISSO.h in Headers */ = {isa = PBXBuildFile; fileRef = 370A882D2410E77200CCF9E6 /* CISSO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		370A88372410EC1B00CCF9E6 /* ThirdPartyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A88362410EC1B00CCF9E6 /* ThirdPartyLoginManager.swift */; };
 		370A883C2410EC2D00CCF9E6 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A88392410EC2D00CCF9E6 /* LoginModel.swift */; };
 		370A883D2410EC2D00CCF9E6 /* LoginModelForLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A883A2410EC2D00CCF9E6 /* LoginModelForLine.swift */; };
 		370A883E2410EC2D00CCF9E6 /* LoginModelForApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A883B2410EC2D00CCF9E6 /* LoginModelForApple.swift */; };
 		370A88412410EC3E00CCF9E6 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A88402410EC3E00CCF9E6 /* DelegateViewController.swift */; };
 		7CE33BCAC8B267F1280E9778 /* Pods_CISSO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC217A12AF10FA6934FEF0A /* Pods_CISSO.framework */; };
+		E4C41C782581CFB800BB44D7 /* ThirdPartyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C41C772581CFB800BB44D7 /* ThirdPartyLoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,6 @@
 		370A882A2410E77200CCF9E6 /* CISSO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CISSO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		370A882D2410E77200CCF9E6 /* CISSO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISSO.h; sourceTree = "<group>"; };
 		370A882E2410E77200CCF9E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		370A88362410EC1B00CCF9E6 /* ThirdPartyLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginManager.swift; sourceTree = "<group>"; };
 		370A88392410EC2D00CCF9E6 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		370A883A2410EC2D00CCF9E6 /* LoginModelForLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForLine.swift; sourceTree = "<group>"; };
 		370A883B2410EC2D00CCF9E6 /* LoginModelForApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModelForApple.swift; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		3723A63D241631E300C141A9 /* LineSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LineSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		529FA0D46E140D48FA034C21 /* Pods-CISSO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CISSO.debug.xcconfig"; path = "Target Support Files/Pods-CISSO/Pods-CISSO.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB4A9F31087E93D5325B00B /* Pods-CISSO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CISSO.release.xcconfig"; path = "Target Support Files/Pods-CISSO/Pods-CISSO.release.xcconfig"; sourceTree = "<group>"; };
+		E4C41C772581CFB800BB44D7 /* ThirdPartyLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 		370A88352410EC1B00CCF9E6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				370A88362410EC1B00CCF9E6 /* ThirdPartyLoginManager.swift */,
+				E4C41C772581CFB800BB44D7 /* ThirdPartyLoginManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -254,8 +254,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C41C782581CFB800BB44D7 /* ThirdPartyLoginManager.swift in Sources */,
 				370A88412410EC3E00CCF9E6 /* DelegateViewController.swift in Sources */,
-				370A88372410EC1B00CCF9E6 /* ThirdPartyLoginManager.swift in Sources */,
 				370A883D2410EC2D00CCF9E6 /* LoginModelForLine.swift in Sources */,
 				370A883E2410EC2D00CCF9E6 /* LoginModelForApple.swift in Sources */,
 				370A883C2410EC2D00CCF9E6 /* LoginModel.swift in Sources */,
@@ -406,6 +406,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud-interactive.CISSO";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -431,6 +432,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud-interactive.CISSO";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
